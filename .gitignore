@@ -1,0 +1,52 @@
+.gradle/
+.idea/
+*.iml
+local.properties
+**/build/
+*.apk
+*.aab
+*.jks
+*.keystore
+.env
+secrets.properties
+.DS_Store
+*.zip
+
+# The official Gradle 8.13 wrapper JAR is committed; CI validates its checksum.
+gradle/wrapper/*.download
+
+# Never commit signing/upload keys or test fixtures with real records.
+keystore.properties
+.signing/
+*.asc
+*.p12
+*.pfx
+*.pem
+*.key
+.local-test/
+# The one exception: a self-signed localhost certificate used only by the screenshot test's on-emulator server
+# It signs nothing, is trusted only inside that test process, and holds no real data.
+!app/src/test/ui/resources/screenshot-localhost.p12
+*.log
+*.hprof
+captures/
+private/
+**/.DS_Store
+
+# Additional machine-local configuration and credentials
+.env.*
+!.env.example
+google-services.json
+*.jceks
+*.p8
+*.p7b
+*.mobileprovision
+*.cer
+*.crt
+*.der
+id_rsa*
+id_ed25519*
+**/.cxx/
+*.trace
+
+.kotlin/

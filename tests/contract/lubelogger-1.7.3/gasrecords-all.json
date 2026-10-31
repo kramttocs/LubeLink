@@ -1,0 +1,32 @@
+[
+  {
+    "vehicleId": 1,
+    "id": 1,
+    "date": "2026-10-04",
+    "odometer": 1300,
+    "fuelConsumed": 12.5,
+    "cost": 52.1,
+    "fuelEconomy": 0,
+    "isFillToFull": true,
+    "missedFuelUp": false,
+    "startingSoc": 0,
+    "endingSoc": 0,
+    "notes": null,
+    "tags": "",
+    "extraFields": [
+      {
+        "name": "LubeLink Gas Station",
+        "value": "Synthetic Fuel Stop",
+        "isRequired": false,
+        "fieldType": 0
+      },
+      {
+        "name": "LubeLink Station Address",
+        "value": "1 Test Way, Testville",
+        "isRequired": false,
+        "fieldType": 0
+      }
+    ],
+    "files": []
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "vehicleId": 3,
+    "id": 1,
+    "date": "2026-10-03",
+    "odometer": 340,
+    "description": "Roof rack",
+    "notes": null,
+    "cost": 89.99,
+    "tags": "",
+    "extraFields": [],
+    "files": []
+  }
+]

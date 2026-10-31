@@ -1,0 +1,37 @@
+# Synthetic starter values used by tests, fixtures and the screenshot run (one per line). None of them may appear
+# in the app's source (tests/user_data_check.py). Values in tests/contract/*/ captures are added automatically.
+Synthetic
+Example Sedan
+Wagon
+Volt
+Tractor
+Truck
+TEST-001
+TEST-EV1
+TEST-HRS
+Synthetic Fuel Stop
+1 Test Way, Testville
+synthetic-root
+synthetic-pass-1
+synthetic-editor
+synthetic-manager
+it-editor
+it-manager
+it-viewer
+lubelogger.invalid
+lubelogger-a.invalid
+lubelogger-b.invalid
+lubelogger-other.invalid
+# The screenshot run's garage (app/src/androidTest/.../ScreenshotGarage.kt)
+CR-V
+F-150
+Ioniq 5
+L3301
+Kubota
+Corner Fuel & Wash
+Hilltop Gas
+410 Maple Ave, Riverton
+22 Ridge Rd, Riverton
+Riverton
+synthetic-screenshots-editor
+synthetic-screenshots-manager

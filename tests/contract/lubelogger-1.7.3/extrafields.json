@@ -1,0 +1,17 @@
+[
+  {
+    "recordType": "GasRecord",
+    "extraFields": [
+      {
+        "name": "LubeLink Gas Station",
+        "isRequired": false,
+        "fieldType": "Text"
+      },
+      {
+        "name": "LubeLink Station Address",
+        "isRequired": false,
+        "fieldType": "Text"
+      }
+    ]
+  }
+]

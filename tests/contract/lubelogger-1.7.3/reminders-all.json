@@ -1,0 +1,16 @@
+[
+  {
+    "vehicleId": 1,
+    "id": 1,
+    "description": "Rotate tires",
+    "urgency": "Urgent",
+    "metric": "Date",
+    "userMetric": "Date",
+    "notes": "Synthetic reminder",
+    "dueDate": "2026-11-01",
+    "dueOdometer": 0,
+    "dueDays": 8,
+    "dueDistance": 0,
+    "tags": ""
+  }
+]

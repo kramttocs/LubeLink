@@ -1,0 +1,14 @@
+[
+  {
+    "vehicleId": 1,
+    "id": 1,
+    "date": "2026-10-01",
+    "odometer": 1200,
+    "description": "Oil change",
+    "notes": "Synthetic note",
+    "cost": 45.5,
+    "tags": "synthetic",
+    "extraFields": [],
+    "files": []
+  }
+]

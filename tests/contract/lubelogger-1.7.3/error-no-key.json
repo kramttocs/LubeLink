@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-title" content="LubeLogger" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181818">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f3f3f3">
+    <title>Access Denied - LubeLogger</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap-icons.css" />
+    <link rel="stylesheet" href="/lib/bootstrap-datepicker/css/bootstrap-datepicker.min.css" />
+    <link rel="stylesheet" href="/lib/bootstrap-tagsinput/bootstrap-tagsinput.css" />
+    <link rel="stylesheet" href="/css/site.css?v=1.7.3" />
+    <link rel="stylesheet" href="/css/loader.css" />
+    <link rel="stylesheet" href="/css/theme.css" media="screen" />
+    <link rel="stylesheet" href="/sweetalert/sweetalert2.min.css" />
+    <link rel="icon" sizes="192x192" href="/defaults/lubelogger_icon_192.png" />
+    <link rel="icon" sizes="128x128" href="/defaults/lubelogger_icon_128.png" />
+    <link rel="apple-touch-icon" sizes="128x128" href="/defaults/lubelogger_icon_128.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="128x128" href="/defaults/lubelogger_icon_128.png" />
+    <link rel="apple-touch-startup-image" href="/defaults/lubelogger_launch.png" />
+    <link rel="manifest" href="/manifest.json">
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/js/shared.js?v=1.7.3"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/lib/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="/lib/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+    <script src="/sweetalert/sweetalert2.all.min.js"></script>
+    <script src="/js/loader.js?v=1.7.3"></script>
+    <script>
+        function getGlobalConfig() {
+            return {
+                useDarkMode: "False" == "True" || ("False" == "True" && window.matchMedia('(prefers-color-scheme: dark)').matches),
+                enableCsvImport : "False" == "True",
+                useMarkDown: "False" == "True",
+                currencySymbol: decodeHTMLEntities("$"),
+                useThreeDecimals: "False" == "True",
+                useMPG: "False" == "True",
+                webSocketEnabled: "False" == "True",
+                resizeThumbnailEnabled: "False" == "True",
+                firstDayOfWeek: 0
+            }
+        }
+        function getShortDatePattern() {
+            return {
+                pattern: "mm/dd/yyyy"
+            }
+        }
+        function globalParseFloat(input){
+            //remove thousands separator.
+            var thousandSeparator = decodeHTMLEntities(",");
+            var decimalSeparator = decodeHTMLEntities(".");
+            var currencySymbol = decodeHTMLEntities("$");
+            if (input == "---") {
+                input = "0";
+            }
+            //strip thousands from input.
+            input = input.replace(thousandSeparator, "");
+            //convert to JS format where decimal is only separated by .
+            input = input.replace(decimalSeparator, ".");
+            //remove any currency symbol
+            input = input.replace(currencySymbol, "");
+            return parseFloat(input);
+        }
+        function globalFloatToString(input) {
+            var decimalSeparator = decodeHTMLEntities(".");
+            input = input.replace(".", decimalSeparator);
+            return input;
+        }
+        function fixDecimalInput(input, numOfDecimals) {
+            if ("False" == "True") {
+                //get the decimal separator.
+                var decimalSeparator = decodeHTMLEntities(".");
+                var inputText = $(input).val().trim();
+                inputText = inputText.replace(decimalSeparator, '');
+                inputText = +inputText;
+                if (isNaN(inputText)){
+                    return;
+                }
+                inputText = inputText.toString();
+                if (inputText == '') {
+                    return;
+                };
+                //check number of decimals.
+                if (inputText.length <= numOfDecimals) {
+                    //less than number of decimals, assume everything is behind the decimal.
+                    inputText = `0${decimalSeparator}${inputText}`; //add leading zero.
+                    $(input).val(inputText);
+                } else {
+                    //check if leading zero
+                    var charToSlice = numOfDecimals * -1;
+                    var charsBehindDecimal = inputText.slice(charToSlice);
+                    var charsFrontDecimal = inputText.substr(0, inputText.length - numOfDecimals);
+                    inputText = `${charsFrontDecimal}${decimalSeparator}${charsBehindDecimal}`;
+                    $(input).val(inputText);
+                }
+            }
+        }
+        function interceptDecimalKeys(event) {
+            if ("False" == "True") {
+                if (event.which == 190 || event.which == 188) {
+                    event.preventDefault(); //intercept keys.
+                }
+            }
+        }
+        function genericErrorMessage(){
+            return decodeHTMLEntities('An error has occurred, please try again later');
+        }
+        function globalAppendCurrency(input){
+            //check currency symbol position
+            var currencySymbolPosition = "0";
+            var currencySymbol = decodeHTMLEntities("$");
+            switch (currencySymbolPosition) {
+                case "0":
+                    return `${currencySymbol}${input}`;
+                    break;
+                case "1":
+                    return `${input}${currencySymbol}`;
+                    break;
+                case "2":
+                    return `${currencySymbol} ${input}`;
+                    break;
+                case "3":
+                    return `${input} ${currencySymbol}`;
+                    break;
+            }
+        }
+        function setThemeBasedOnDevice() {
+            var systemPrefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (systemPrefersDarkMode) {
+                $(document.documentElement).attr("data-bs-theme", "dark");
+            }
+        }
+    </script>
+    
+</head>
+<body>
+    
+    <div b-o4nd5c9oy1 class="container lubelogger-body-container">
+        <main b-o4nd5c9oy1 role="main">
+            <div class="no-top-pad d-flex align-items-center justify-content-center" style="height:100dvh;">
+   <div class="flex-column d-flex">
+        <span class="display-1">Access Denied</span>
+        <hr />
+        <div class="d-flex justify-content-center">
+            <a href="/Home" class="btn btn-outline-secondary"><i class="bi bi-car-front me-2"></i>Return to Garage</a>
+        </div>
+   </div>
+</div>
+
+        </main>
+    </div>
+    
+</body>
+</html>

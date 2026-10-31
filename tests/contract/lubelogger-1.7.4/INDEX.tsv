@@ -1,0 +1,32 @@
+name	method	path	key	status	content_type
+write-reminder-add	POST	/api/vehicle/reminders/add?vehicleId=1	editor	200	application/json; charset=utf-8
+write-service-add	POST	/api/vehicle/servicerecords/add?vehicleId=1	editor	200	application/json; charset=utf-8
+write-repair-add	POST	/api/vehicle/repairrecords/add?vehicleId=1	editor	200	application/json; charset=utf-8
+write-upgrade-add	POST	/api/vehicle/upgraderecords/add?vehicleId=3	editor	200	application/json; charset=utf-8
+write-fuel-add	POST	/api/vehicle/gasrecords/add?vehicleId=1	editor	200	application/json; charset=utf-8
+whoami-editor	GET	/api/whoami	editor	200	application/json; charset=utf-8
+whoami-manager	GET	/api/whoami	manager	200	application/json; charset=utf-8
+vehicles	GET	/api/vehicles	editor	200	application/json; charset=utf-8
+vehicle-info	GET	/api/vehicle/info	editor	200	application/json; charset=utf-8
+reminders-all	GET	/api/vehicle/reminders/all	editor	200	application/json; charset=utf-8
+extrafields	GET	/api/extrafields	editor	200	application/json; charset=utf-8
+servicerecords-vehicle1	GET	/api/vehicle/servicerecords?vehicleId=1	editor	200	application/json; charset=utf-8
+servicerecords-all	GET	/api/vehicle/servicerecords/all	editor	200	application/json; charset=utf-8
+repairrecords-vehicle1	GET	/api/vehicle/repairrecords?vehicleId=1	editor	200	application/json; charset=utf-8
+repairrecords-all	GET	/api/vehicle/repairrecords/all	editor	200	application/json; charset=utf-8
+upgraderecords-vehicle1	GET	/api/vehicle/upgraderecords?vehicleId=1	editor	200	application/json; charset=utf-8
+upgraderecords-all	GET	/api/vehicle/upgraderecords/all	editor	200	application/json; charset=utf-8
+gasrecords-vehicle1	GET	/api/vehicle/gasrecords?vehicleId=1&useMPG=true&useUKMPG=false	editor	200	application/json; charset=utf-8
+gasrecords-all	GET	/api/vehicle/gasrecords/all?useMPG=true&useUKMPG=false	editor	200	application/json; charset=utf-8
+servicerecords-by-id	GET	/api/vehicle/servicerecords?vehicleId=1&id=1	editor	200	application/json; charset=utf-8
+gasrecords-by-id	GET	/api/vehicle/gasrecords?vehicleId=1&id=1&useMPG=true&useUKMPG=false	editor	200	application/json; charset=utf-8
+write-service-update	PUT	/api/vehicle/servicerecords/update	editor	200	application/json; charset=utf-8
+write-repair-delete	DELETE	/api/vehicle/repairrecords/delete?id=1	manager	200	application/json; charset=utf-8
+error-no-key	GET	/api/vehicles	none	401	text/html; charset=utf-8
+error-wrong-key	GET	/api/vehicles	wrong	401	text/html; charset=utf-8
+error-whoami-wrong-key	GET	/api/whoami	wrong	401	text/html; charset=utf-8
+error-editor-delete	DELETE	/api/vehicle/servicerecords/delete?id=1	editor	403	application/json; charset=utf-8
+error-record-missing	GET	/api/vehicle/servicerecords?vehicleId=1&id=999	editor	200	application/json; charset=utf-8
+error-delete-missing	DELETE	/api/vehicle/repairrecords/delete?id=999	manager	400	application/json; charset=utf-8
+error-add-unknown-vehicle	POST	/api/vehicle/servicerecords/add?vehicleId=999	editor	200	application/json; charset=utf-8
+vehicle-image	GET	/defaults/noimage.png	editor	200	image/png

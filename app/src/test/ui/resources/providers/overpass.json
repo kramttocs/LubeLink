@@ -1,0 +1,5 @@
+{"version":0.6,"generator":"Overpass API (synthetic)","osm3s":{"timestamp_osm_base":"2026-10-25T00:00:00Z","copyright":"The data included in this document is from www.openstreetmap.org."},"elements":[
+ {"type":"node","id":2000001,"lat":40.011,"lon":-75.012,"tags":{"amenity":"fuel","name":"Synthetic Gas","addr:housenumber":"5","addr:street":"Example Street","addr:city":"Testville","addr:state":"TS","addr:postcode":"00002"}},
+ {"type":"way","id":2000002,"center":{"lat":40.013,"lon":-75.014},"nodes":[1,2,3],"tags":{"amenity":"fuel","brand":"Synthetic Brand"}},
+ {"type":"relation","id":2000003,"center":{"lat":40.015,"lon":-75.016},"tags":{"amenity":"fuel"}}
+]}
